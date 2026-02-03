@@ -6,7 +6,6 @@ import (
 )
 
 func commandExplore(cfg *config, args []string) error {
-	fmt.Println(args)
 	if len(args) == 0 {
 		return errors.New("no location provided")
 	}
