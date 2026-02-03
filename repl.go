@@ -5,16 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
-
-	"github.com/JStephens72/pokedexcli/internal/pokeapi"
 )
-
-type config struct {
-	pokeapiClient    pokeapi.Client
-	nextLocationsURL *string
-	prevLocationsURL *string
-	caughtPokemon    map[string]pokeapi.Pokemon
-}
 
 func startRepl(cfg *config) {
 	reader := bufio.NewScanner(os.Stdin)
@@ -87,6 +78,11 @@ func getCommands() map[string]cliCommand {
 			name:        "catch",
 			description: "attempts to catch the named pokemon",
 			callback:    commandCatch,
+		},
+		"inspect": {
+			name:        "inspect",
+			description: "display stats for pokemons in your Pokedex",
+			callback:    commandInspect,
 		},
 	}
 }
